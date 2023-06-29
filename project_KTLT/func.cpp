@@ -2358,7 +2358,7 @@ double GPA_eachst(string** a, int k, int l) {// tinh diem TB tung sinh vien
 	return sum;
 }
 
-void view_scoreboard_class() {//xem diem cua ca lop // 23
+void view_scoreboard_class() {//xem diem cua ca lop // 23(done)
 	system("cls");
 
 	while (1) {
@@ -2551,11 +2551,42 @@ void view_scoreboard_class() {//xem diem cua ca lop // 23
 				delete[] sec;
 
 				//xuat file vua tao ra man hinh
-				/*fstream sb;
+				fstream sb;
 				sb.open(c_csv, ios::in);
-				while (!sb.eof()) {
-					string
-				}*/
+				string a1, a2, a3;
+				n_cla++;
+				string* hai = new string[n_cla];
+				for (int i = 0; i < mem + 1; i++) {
+
+					//lay thong tin tu file diem cua lop
+					getline(sb, a1, ',');
+					getline(sb, a2, ',');
+					getline(sb, a3, ',');
+					for (int j = 0; j < n_cla; j++) {
+						if (j == n_cla - 1) {
+							getline(sb, hai[j]);
+							break;
+						}
+						getline(sb, hai[j], ',');
+					}
+
+					//xuat thong tin ra man hinh
+					cout << setw(6) << left << a1;
+					cout << setw(15) << left << a2;
+					cout << setw(40) << left << a3;
+					for (int j = 0; j < n_cla; j++) {
+						if (j == n_cla - 1 && i != mem) {
+							cout << setw(12) << hai[j] << endl;
+							break;
+						}
+						else if (j == n_cla - 1 && i == mem) {
+							cout << endl;
+							break;
+						}
+						cout << setw(12) << hai[j];
+					}
+				}
+				delete[] hai;
 			}
 		}
 		else {
@@ -2563,6 +2594,8 @@ void view_scoreboard_class() {//xem diem cua ca lop // 23
 		}
 	}
 }
+
+
 
 void hethongchinh(int& year, int& semester) {
 	system("cls");

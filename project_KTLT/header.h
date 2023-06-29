@@ -119,7 +119,7 @@ void update_score(); //cap nhat diem cua sinh vien //22(done)
 void get_score(const char* inpCourse, string cl[], int n);//lay diem cuoi ky trong tung khoa hoc
 double GPA_cal(string a[], int n);//tinh diem TB tung khoa hoc
 double GPA_eachst(string** a, int k, int l);// tinh diem TB tung sinh vien
-void view_scoreboard_class(); //xem diem cua ca lop // 23
+void view_scoreboard_class(); //xem diem cua ca lop // 23(done)
 
 
 //------------------------------------------------------------------------------------//
