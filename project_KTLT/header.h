@@ -133,3 +133,12 @@ void merge_course_st();//gop ds sinh vien trong tung course csv lai voi nhau tha
 void sv_view_course();//sinh vien xem khoa hoc da dang ky //14(done)
 
 //------------------------------------------------------------------------------------//
+
+
+//----------------------------------end of year---------------------------------------//
+
+
+void courses_each_class(); //count how many course in each class//(24+)
+
+
+//------------------------------------------------------------------------------------//

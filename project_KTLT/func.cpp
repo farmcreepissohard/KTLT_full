@@ -2595,6 +2595,49 @@ void view_scoreboard_class() {//xem diem cua ca lop // 23(done)
 	}
 }
 
+void courses_each_class() {//count how many course in each class//(24+)
+	fstream f;
+	f.open("allcourse.txt", ios::in);
+	int n;
+	f >> n;
+	course* dsc = new course[n];
+	for (int i = 0; i < n; i++) {
+		int x;
+		f >> x;
+		f.ignore();
+		getline(f, dsc[i].id);
+		getline(f, dsc[i].name);
+		getline(f, dsc[i].inclass);
+		getline(f, dsc[i].teacher);
+		getline(f, dsc[i].credits);
+		getline(f, dsc[i].maxst);
+		getline(f, dsc[i].dow);
+		getline(f, dsc[i].ses);
+	}
+	f.close();
+
+	fstream cl;
+	cl.open("allclasses.txt", ios::in);
+	int ncl;
+	cl >> ncl;
+	cl.ignore();
+	for (int i = 0; i < ncl; i++) {
+		string c;
+		getline(cl, c);
+		string cp = c;
+		c += ".txt";
+		fstream f1;
+		f1.open(c, ios::out);
+		int cnt = 0;
+		for (int j = 0; j < n; j++) {
+			if (cp.compare(dsc[j].inclass) == 0) {
+				cnt++;
+			}
+		}
+		f1 << cnt;
+		f1.close();
+	}
+}
 
 
 void hethongchinh(int& year, int& semester) {
