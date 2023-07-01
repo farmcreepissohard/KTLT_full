@@ -139,6 +139,7 @@ void sv_view_course();//sinh vien xem khoa hoc da dang ky //14(done)
 
 
 void courses_each_class(); //count how many course in each class//(24+)
+void student_view_scoreboard(); //student see score //24(done)
 
 
 //------------------------------------------------------------------------------------//

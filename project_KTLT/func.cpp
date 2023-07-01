@@ -2639,6 +2639,111 @@ void courses_each_class() {//count how many course in each class//(24+)
 	}
 }
 
+void student_view_scoreboard() {//student see score //24(done)
+	system("cls");
+
+	while (1) {
+		cout << endl << "nhap lua chon: " << endl;
+		cout << "1. xem diem ca hoc ky" << endl;
+		cout << "2. thoat" << endl;
+		cout << "nhap lua chon: ";
+		int x;
+		cin >> x;
+		cin.ignore();
+		if (x == 1) {
+			system("cls");
+
+			fstream f;
+			f.open("allclasses.txt", ios::in);
+			int n;
+			f >> n;
+			f.ignore();
+			string* cl = new string[n];
+			for (int i = 0; i < n; i++) {
+				getline(f, cl[i]);
+			}
+			f.close();
+
+			string m;
+			cout << "ma lop: ";
+			getline(cin, m);
+			int flag = 0;
+			for (int i = 0; i < n; i++) {
+				if (m.compare(cl[i]) == 0) {
+					flag = 1;
+					break;
+				}
+			}
+			delete[] cl;
+
+			if (flag == 0) {
+				cout << "khong ton tai lop hoc" << endl;
+				continue;
+			}
+			else {
+				//lay so luong khoa hoc trong lop
+				fstream f1;
+				string tm;
+				tm = m;
+				tm += ".txt";
+				f1.open(tm, ios::in);
+				int ncl;
+				f1 >> ncl;
+				f1.close();
+				string* mark = new string[ncl + 1];
+
+				//nhap ten sinh vien
+				string name;
+				cout << "ma so sinh vien: ";
+				getline(cin, name);
+
+				fstream f2;
+				tm = m;
+				tm += "_scoreboard.csv";
+				f2.open(tm, ios::in);
+				string a1, a2, a3;
+				int y = 0;
+				while (!f2.eof()) {
+					getline(f2, a1, ',');
+					getline(f2, a2, ',');
+					getline(f2, a3, ',');
+					for (int i = 0; i < ncl + 1; i++) {
+						if (i == ncl) {
+							getline(f2, mark[i]);
+							break;
+						}
+						getline(f2, mark[i], ',');
+					}
+
+					if (y == 0 || a2 == name) {
+						cout << setw(6) << left << a1;
+						cout << setw(15) << left << a2;
+						cout << setw(40) << left << a3;
+						for (int i = 0; i < ncl + 1; i++) {
+							if (i == ncl) {
+								cout << setw(12) << mark[i] << endl;
+								break;
+							}
+							cout << setw(12) << mark[i];
+						}
+						y++;
+					}
+					if (y == 2) {
+						break;
+					}
+				}
+
+				delete[] mark;
+				f2.close();
+			}
+		}
+		else {
+			break;
+		}
+	}
+
+}
+
 
 void hethongchinh(int& year, int& semester) {
 	system("cls");
