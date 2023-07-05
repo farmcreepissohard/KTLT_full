@@ -542,7 +542,7 @@ void view_list_course(const char*courselist) {//xem ds lop hoc da tao va thong t
 
 	//mo file txt de lay thong tin luu tru
 	fstream f;
-	f.open(courselist, ios::in);
+	f.open(courselist, ios::in);//dscourse.txt
 	int m;
 	f >> m;//so luong khoa hoc
 	cout << "list of course: " << endl;
@@ -2744,82 +2744,266 @@ void student_view_scoreboard() {//student see score //24(done)
 
 }
 
-
-void hethongchinh(int& year, int& semester) {
-	system("cls");
-	cout << "---------MENU---------" << endl;
-	cout << "1. tao nam hoc " << endl;
-	cout << "2. tao hoc ky " << endl;
-	cout << "3. tao khoa hoc " << endl;
-	/*cout << "5. tao lop hoc" << endl;
-	cout << "6. them hoc sinh vao lop " << endl;
-	cout << "7. quay ve " << endl;*/
-	int luachon;
-	cout << "nhap lua chon: ";
-	cin >> luachon;
+void hethongchinh_gv(int& year, int& semester, int& truycap, int& mark) {
 	while (1) {
-		switch (luachon) {
-		case 1: 
-			cout << "tao nam hoc " << endl;
-			createSchoolyear(year);
-			break;
-		case 2:
-			cout << "tao hoc ky " << endl;
-			createSemester(semester, year);
-			break;
-		case 3:
-			cout << "tao khoa hoc" << endl;
-			int n;
-			cout << "so luong khoa hoc can tao: ";
-			cin >> n;
-			course* c = new course[n];
-			cin.ignore();
-			add_list_course(n, c);
-			break;
-	
+		system("cls");
+		cout << "1. mo dau name hoc va hoc ky moi" << endl;
+		cout << "2. dau hoc ky cua nam hoc" << endl;
+		cout << "3. moi luc" << endl;
+		cout << "4. cuoi hoc ky cua nam hoc" << endl;
+		cout << "5. thoat" << endl;
+		int l;
+		cin >> l;
+		cin.ignore();
+		if (l == 1) {
+			modau_gv(year, semester);
+		}
+		else if (l == 2) {
+			dauhk_gv();
+		}
+		else if (l == 3) {
+			anytime_gv(truycap);
+		}
+		else if (l == 4) {
+			mark = 1;
+			cuoihk_gv();
+		}
+		else {
+			return;
 		}
 	}
 }
 
-void menuascm(int i, giaovu gv, int flag, int& year, int& semester) {//menu giao vu
-	system("cls");
-	int luachon;
-	cout << "---------MENU---------" << endl;
-	cout << "1. he thong chinh " << endl;
-	cout << "2. thong tin ca nhan " << endl;
-	cout << "3. doi mat khau " << endl;
-	cout << "4. dang xuat" << endl;
-	cout << "5. thoat " << endl;
-	cout << "nhap lua chon: ";
-	cin >> luachon;
+void modau_gv(int& year, int& semester) {
 	while (1) {
+		system("cls");
+		cout << "---------MENU---------" << endl;
+		cout << "1. tao nam hoc " << endl;
+		cout << "2. tao lop hoc " << endl;
+		cout << "3. them sinh vien vao lop hoc" << endl;
+		cout << "4. tao ho ky" << endl;
+		cout << "5. quay ve" << endl;
+		int luachon;
+		cout << "nhap lua chon: ";
+		cin >> luachon;
+		cin.ignore();
 		switch (luachon) {
 		case 1:
-			cout << "he thong chinh: " << endl;
-			hethongchinh(year,semester);
+			system("cls");
+			cout << "tao nam hoc " << endl;
+			createSchoolyear(year);
 			break;
 		case 2:
-			cout << "thong tin ca nhan: " << endl;
-			if (flag == 0) {
-				thongtin_asm("asm_1.txt", gv);
-			}
-			else if (flag == 1) {
-				thongtin_asm("asm_2.txt", gv);
-			}
-			else if (flag == 2) {
-				thongtin_asm("asm_3.txt", gv);
-			}
+			system("cls");
+			cout << "tao lop hoc" << endl;
+			createclasses(year);
 			break;
 		case 3:
-			cout << "doi mat khau " << endl;
-			doimatkhau("login_asm.txt", flag);
+			system("cls");
+			cout << "them sinh vien vao lop hoc" << endl;
+			themsvvaolop("1stclasses.txt", year);
 			break;
 		case 4:
+			system("cls");
+			cout << "tao hoc ky" << endl;
+			createSemester(semester, year);
+			break;
+		default:
 			return;
+		}
+	}
+}
+
+void dauhk_gv() {
+	while (1) {
+		system("cls");
+		cout << "---------MENU---------" << endl;
+		cout << "1. them khoa hoc " << endl;
+		cout << "2. them sinh vien cua lop vao khoa hoc" << endl;
+		cout << "3. xem danh sach khoa hoc" << endl;
+		cout << "4. cap nhat thong tin khoa hoc" << endl;
+		cout << "5. them 1 sinh vien vao khoa hoc" << endl;
+		cout << "6. xoa 1 sinh vien ra khoi lop hoc" << endl;
+		cout << "7. xoa khoa hoc" << endl;
+		cout << "8. thoat" << endl;
+		int luachon;
+		cin >> luachon;
+		cin.ignore();
+		if (luachon == 1) {
+			system("cls");
+			cout << "them khoa hoc" << endl;
+			int n;
+			cout << "nhap so luong khoa hoc: ";
+			cin >> n;
+			cin.ignore();
+			course* c = new course[n];
+			add_list_course(n, c);
+			delete[] c;
+		}
+		else if (luachon == 2) {
+			system("cls");
+			cout << "them sinh vien cua lop vao khoa hoc" << endl;
+			upload_studentincourse();
+		}
+		else if (luachon == 3) {
+			system("cls");
+			cout << "xem danh sach khoa hoc" << endl;
+			view_list_course("dscourse.txt");
+		}
+		else if (luachon == 4) {
+			system("cls");
+			cout << "cap nhat thong tin khoa hoc" << endl;
+			update_course();
+		}
+		else if (luachon == 5) {
+			system("cls");
+			cout << "them 1 sinh vien vao khoa hoc" << endl;
+			add_sttocourse();
+		}
+		else if (luachon == 6) {
+			system("cls");
+			cout << "xoa sinh vien ra khoi lop hoc" << endl;
+			remove_st_course();
+		}
+		else if (luachon == 7) {
+			system("cls");
+			cout << "xoa khoa hoc" << endl;
+			delete_course();
+		}
+		else {
+			return;
+		}
+	}
+}
+
+void anytime_gv(int& truycap) {
+	if (truycap == 0) {
+		merge_all_classes();
+		merge_all_course();
+		truycap = 1;
+	}
+	while (1) {
+		system("cls");
+		cout << "---------MENU---------" << endl;
+		cout << "1. xem danh sach tat ca cac lop hoc" << endl;
+		cout << "2. xem danh sach sinh vien trong lop hoc" << endl;
+		cout << "3. xem danh sach tat ca khoa hoc " << endl;
+		cout << "4. xem danh sach sinh vien trong khoa hoc" << endl;
+		cout << "5. thoat" << endl;
+		int luachon;
+		cin >> luachon;
+		cin.ignore();
+		switch (luachon) {
+		case 1:
+			system("cls");
+			cout << "xem danh sach tat ca cac lop hoc" << endl;
+			view_list_classes();
+			break;
+		case 2:
+			system("cls");
+			cout << "xem danh sach sinh vien trong lop hoc" << endl;
+			view_stclass();
+			break;
+		case 3:
+			system("cls");
+			cout << "xem danh sach tat ca cac khoa hoc" << endl;
+			view_list_course("allcourse.txt");
+			break;
+		case 4:
+			system("cls");
+			cout << "xem danh sach sinh vien trong khoa hoc" << endl;
+			view_stcourse();
+			break;
+		default:
+			return;
+		}
+	}
+}
+
+void cuoihk_gv() {
+	while (1) {
+		system("cls");
+		cout << "---------MENU---------" << endl;
+		cout << "1. tao file diem cua tung khoa hoc" << endl;
+		cout << "2. nhap diem cho khoa hoc" << endl;
+		cout << "3. xem diem khoa hoc" << endl;
+		cout << "4. cap nhat diem sinh vien" << endl;
+		cout << "5. xem diem lop hoc" << endl;
+		cout << "6. thoat" << endl;
+		int luachon;
+		cin >> luachon;
+		cin.ignore();
+		switch (luachon) {
+		case 1:
+			system("cls");
+			cout << " tao file diem cua tung khoa hoc" << endl;
+			scoreboard_course();
+			break;
+		case 2:
+			system("cls");
+			cout << "nhap file diem vao khoa hoc" << endl;
+			inp_course_scoreboard();
+			break;
+		case 3:
+			system("cls");
+			cout << "xem diem khoa hoc" << endl;
+			view_scoreboard_course();
+			break;
+		case 4:
+			system("cls");
+			cout << "cap nhat diem sinh vien" << endl;
+			update_score();
 			break;
 		case 5:
-			cout << "cam on ban da su dung he thong";
-			exit(1);
+			system("cls");
+			cout << "xem diem lop hoc" << endl;
+			view_scoreboard_class();
+			break;
+		default:
+			return;
+		}
+	}
+}
+
+void dauhk_sv() {
+	while (1) {
+		cout << "---------MENU---------" << endl;
+		cout << "1. xem danh sach khoa hoc dang ky" << endl;
+		cout << "2. thoat" << endl;
+		int luachon;
+		cin >> luachon;
+		cin.ignore();
+		switch (luachon) {
+		case 1:
+			system("cls");
+			cout << "xem danh sach khoa hoc dang ky" << endl;
+			merge_course_st();
+			sv_view_course();
+			break;
+		default:
+			return;
+		}
+	}
+}
+
+void cuoihk_sv() {
+	while (1) {
+		system("cls");
+		cout << "---------MENU---------" << endl;
+		cout << "1. xem diem " << endl;
+		cout << "2. thoat" << endl;
+		int luachon;
+		cin >> luachon;
+		cin.ignore();
+		switch (luachon) {
+		case 1:
+			system("cls");
+			cout << "xem diem" << endl;
+			courses_each_class();
+			student_view_scoreboard();
+			break;
+		default:
+			return;
 		}
 	}
 }

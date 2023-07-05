@@ -143,3 +143,26 @@ void student_view_scoreboard(); //student see score //24(done)
 
 
 //------------------------------------------------------------------------------------//
+
+
+// MENU
+
+//-----------------------------------------------------------------------------------//
+
+//GIAO VU
+void hethongchinh_gv(int& year, int& semester, int& truycap, int& mark);
+
+void modau_gv(int& year, int& semester);
+
+void dauhk_gv();
+
+void anytime_gv(int& truycap);
+
+void cuoihk_gv();
+
+//SINH VIEN
+void dauhk_sv();
+
+void cuoihk_sv();
+
+//------------------------------------------------------------------------------------//

@@ -55,5 +55,8 @@
     <Text Include="allcourse.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="truycap.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

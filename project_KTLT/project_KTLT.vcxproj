@@ -143,6 +143,7 @@
     <Text Include="dscourse.txt" />
     <Text Include="login_asm.txt" />
     <Text Include="schooldates.txt" />
+    <Text Include="truycap.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
