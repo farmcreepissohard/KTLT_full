@@ -1,0 +1,55 @@
+6
+1
+MTH0004
+dai so tuyen tinh
+22CTT2
+nhut
+3
+50
+wed
+s1
+2
+PHY0001
+vat ly dai cuong 1
+22CTT3
+giang
+3
+50
+fri
+s3
+3
+CSC0002
+ky thuat lap trinh
+22CTT3
+tung
+4
+50
+sat
+s1
+4
+CSC0001
+nhap mon lap trinh
+20CTT5
+nghia
+4
+50
+tue
+s1
+5
+CHE0001
+hoa hoc dai cuong 1
+22CTT3
+linh
+3
+50
+thu
+s2
+6
+BIO0002
+sinh hoc dai cuong 2
+20CTT6
+thuy
+3
+50
+sat
+s3

@@ -472,6 +472,7 @@ void add_list_course(int n, course* c) {//cau 7 (done)
 void upload_studentincourse() {//upload list student in class csv to course csv //8 (done)
 	system("cls");
 
+	int chooseee;
 	//su dung ds khoa hoc de tao course csv
 	fstream f;
 	f.open("dscourse.txt", ios::in);
@@ -498,9 +499,12 @@ void upload_studentincourse() {//upload list student in class csv to course csv 
 		temp1 += ".csv";// ten_lop.csv
 		fstream f1;
 		f1.open(temp1, ios::in);//mo file lop hoc csv chua sinh vien da tao o cau 3 4 5
-		if (f.bad()) {
+		if (f1.bad()) {
 			cout << "khong ton tai sinh vien trong lop de thiet lap ds course.csv" << endl;
 			f1.close();
+			cout << endl << "chon 1 de quay ve" << endl;
+			cin >> chooseee;
+			cin.ignore();
 			continue;
 		}
 		else {
@@ -740,6 +744,10 @@ void update_course() {//update a course // 10 (done)
 			//truong hop khong tim thay id khoa hoc can update
 			if (flag == 0) {
 				cout << "khong tin thay id khoa hoc can doi ten" << endl;
+				int choose;
+				cout << endl << "chon 1 de quay ve" << endl;
+				cin >> choose;
+				cin.ignore();
 			}
 
 			//truong hop tim thay id khoa hoc can update
@@ -1033,6 +1041,9 @@ void add_sttocourse() {//add a student to course //11(done)
 			}
 			if (flag == 0) {
 				cout << "khong ton tai khoa hoc do trong ds" << endl;
+				cout << endl << "chon 1 de quay ve" << endl;
+				cin >> x;
+				cin.ignore();
 				continue;
 			}
 			else {
@@ -1090,6 +1101,7 @@ void remove_st_course() {//xoa 1 sinh vien ra khoi khoa hoc // 12(done)
 	system("cls");
 
 	while (1) {
+		system("cls");
 		cout << "chon lua chon: " << endl;
 		cout << "1. xoa 1 sinh vien ra khoi khoa hoc" << endl;
 		cout << "2.thoat" << endl;
@@ -1134,7 +1146,11 @@ void remove_st_course() {//xoa 1 sinh vien ra khoi khoa hoc // 12(done)
 			delete[] dsc;
 
 			if (flag == 0) {
-				cout << "khong ton dai khoa hoc duoc de cap" << endl;
+				cout << "khong ton tai khoa hoc duoc de cap" << endl;
+				int choose;
+				cout << endl << "chon 1 de quay ve" << endl;
+				cin >> choose;
+				cin.ignore();
 				continue;
 			}
 			else {
@@ -1207,6 +1223,10 @@ void remove_st_course() {//xoa 1 sinh vien ra khoi khoa hoc // 12(done)
 
 				if (flag == 0) {
 					cout << "khong ton tai sinh vien trong khoa hoc" << endl;
+					int choose2;
+					cout << endl << "chon 1 de quay ve" << endl;
+					cin >> choose2;
+					cin.ignore();
 					continue;
 				}
 				else {
@@ -1247,6 +1267,8 @@ void remove_st_course() {//xoa 1 sinh vien ra khoi khoa hoc // 12(done)
 
 void delete_course() {//delete course //13 (done)
 	system("cls");
+
+	int choose;
 	while (1) {
 		system("cls");
 		cout << "nhap lua chon: " << endl;
@@ -1286,6 +1308,9 @@ void delete_course() {//delete course //13 (done)
 			if (n == 0) {
 				system("cls");
 				cout << "danh sach khoa hoc rong";
+				cout << endl << "chon 1 de quay ve" << endl;
+				cin >> choose;
+				cin.ignore();
 				return;
 			}
 
@@ -1304,6 +1329,9 @@ void delete_course() {//delete course //13 (done)
 			}
 			if (flag == 0) {
 				cout << "khong ton tai khoa hoc trong ds";
+				cout << endl << "chon 1 de quay ve" << endl;
+				cin >> choose;
+				cin.ignore();
 			}
 			else {
 
@@ -1528,7 +1556,9 @@ void view_list_classes() {//view list classes //15 (done)
 void view_stclass() {//xem ds sinh vien trong lop //16(done)
 	system("cls");
 
+	int choose;
 	while (1) {
+		system("cls");
 		cout << "nhap lua chon: " << endl;
 		cout << "1. xem ds sinh vien trong 1 lop" << endl;
 		cout << "2. thoat" << endl;
@@ -1564,6 +1594,9 @@ void view_stclass() {//xem ds sinh vien trong lop //16(done)
 			}
 			if (flag == 0) {
 				cout << "khong ton tai lop hoc tren" << endl;
+				cout << endl << "chon 1 de quay ve" << endl;
+				cin >> choose;
+				cin.ignore();
 				continue;
 			}
 			else {
@@ -1611,6 +1644,9 @@ void view_stclass() {//xem ds sinh vien trong lop //16(done)
 				}
 				f1.close();
 			}
+			cout << endl << "chon 1 de quay ve" << endl;
+			cin >> choose;
+			cin.ignore();
 		}
 		else {
 			break;
@@ -1683,7 +1719,9 @@ void merge_all_course() {//gop 2 ds khoa hoc moi va all // (15-18)bonus
 void view_stcourse() {//xem ds sinh vien trong khoa hoc // 18(done)
 	system("cls:");
 
+	int choose;
 	while (1) {
+		system("cls");
 		cout << "nhap lua chon: " << endl;
 		cout << "1. xem ds sinh vien trong khoa hoc" << endl;
 		cout << "2.thoat" << endl;
@@ -1730,6 +1768,9 @@ void view_stcourse() {//xem ds sinh vien trong khoa hoc // 18(done)
 
 			if (flag == 0) {
 				cout << "khong ton tai khoa hoc duoc de cap" << endl;
+				cout << endl << "chon 1 de quay ve" << endl;
+				cin >> choose;
+				cin.ignore();
 				continue;
 			}
 			else {
@@ -1777,6 +1818,9 @@ void view_stcourse() {//xem ds sinh vien trong khoa hoc // 18(done)
 				}
 				f1.close();
 			}
+			cout << endl << "chon 1 de quay ve" << endl;
+			cin >> choose;
+			cin.ignore();
 		}
 		else {
 			break;
@@ -1865,7 +1909,9 @@ void scoreboard_course() {//export a scoreboard of course// 19(done)
 void inp_course_scoreboard() {//import scoreboard to course_scoreboard //20(done)
 	system("cls");
 
+	int choose;
 	while (1) {
+		system("cls");
 		cout << "nhap lua chon: " << endl;
 		cout << "1. nhap diem bang file" << endl;
 		cout << "2. nhap diem bang link path" << endl;
@@ -1911,6 +1957,9 @@ void inp_course_scoreboard() {//import scoreboard to course_scoreboard //20(done
 
 			if (flag == 0) {
 				cout << "khong ton tai khoa hoc tren" << endl;
+				cout << endl << "chon 1 de quay ve" << endl;
+				cin >> choose;
+				cin.ignore();
 				continue;
 			}
 			else {
@@ -1924,6 +1973,9 @@ void inp_course_scoreboard() {//import scoreboard to course_scoreboard //20(done
 				if (!sco.is_open()) {
 					cout << "chua co file diem import" << endl;
 					sco.close();
+					cout << endl << "chon 1 de quay ve" << endl;
+					cin >> choose;
+					cin.ignore();
 					continue;
 				}
 				else {
@@ -1983,6 +2035,9 @@ void inp_course_scoreboard() {//import scoreboard to course_scoreboard //20(done
 
 			if (flag == 0) {
 				cout << "khong ton tai khoa hoc tren" << endl;
+				cout << endl << "chon 1 de quay ve" << endl;
+				cin >> choose;
+				cin.ignore();
 				continue;
 			}
 			else {
@@ -2004,6 +2059,9 @@ void inp_course_scoreboard() {//import scoreboard to course_scoreboard //20(done
 				f1.open(pa, ios::in);
 				if (!f1.is_open()) {
 					cout << "khong ton tai file nay " << endl;
+					cout << endl << "chon 1 de quay ve" << endl;
+					cin >> choose;
+					cin.ignore();
 					continue;
 				}
 				else {
@@ -2044,7 +2102,9 @@ void inp_course_scoreboard() {//import scoreboard to course_scoreboard //20(done
 void view_scoreboard_course() {//xem bang diem cua khoa hoc //21(done)
 	system("cls");
 
+	int choose;
 	while (1) {
+		system("cls");
 		cout << "nhap lua chon: " << endl;
 		cout << "1. xem bang diem khoa hoc" << endl;
 		cout << "2. thoat" << endl;
@@ -2095,6 +2155,9 @@ void view_scoreboard_course() {//xem bang diem cua khoa hoc //21(done)
 
 			if (flag == 0) {//khoa hoc khong ton tai
 				cout << "khong ton tai khoa hoc tren" << endl;
+				cout << endl << "chon 1 de quay ve" << endl;
+				cin >> choose;
+				cin.ignore();
 				continue;
 			}
 			else {//khoa hoc ton tai
@@ -2123,6 +2186,9 @@ void view_scoreboard_course() {//xem bang diem cua khoa hoc //21(done)
 				}
 				f.close();
 			}
+			cout << endl << "nhap 1 de quay ve" << endl;
+			cin >> choose;
+			cin.ignore();
 		}
 		else {
 			break;
@@ -2134,7 +2200,9 @@ void view_scoreboard_course() {//xem bang diem cua khoa hoc //21(done)
 void update_score() {//cap nhat diem cua sinh vien //22(done)
 	system("cls");
 
+	int choosee;
 	while (1) {
+		system("cls");
 		cout << "nhap lua chon: " << endl;
 		cout << "1. cap nhat diem 1 sinh vien" << endl;
 		cout << "2. thoat" << endl;
@@ -2181,6 +2249,9 @@ void update_score() {//cap nhat diem cua sinh vien //22(done)
 
 			if (flag == 0) {
 				cout << "khong ton tai khoa hoc trong ds" << endl;
+				cout << endl << "chon 1 de quay ve" << endl;
+				cin >> choosee;
+				cin.ignore();
 				continue;
 			}
 			else {
@@ -2235,6 +2306,9 @@ void update_score() {//cap nhat diem cua sinh vien //22(done)
 				}
 				if (flag == 0) {
 					cout << "khong ton tai sinh vien nay trong lop hoc" << endl;
+					cout << endl << "chon 1 de quay ve" << endl;
+					cin >> choosee;
+					cin.ignore();
 					continue;
 				}
 				else {
@@ -2254,18 +2328,30 @@ void update_score() {//cap nhat diem cua sinh vien //22(done)
 						if (y == 1) {
 							cout << "diem TK duoc chinh sua: ";
 							getline(cin, student_score[hs].diemTK);
+							cout << endl << "chon 1 de quay ve" << endl;
+							cin >> choosee;
+							cin.ignore();
 						}
 						else if (y == 2) {
 							cout << "diem CK duoc chinh sua: ";
 							getline(cin, student_score[hs].diemCK);
+							cout << endl << "chon 1 de quay ve" << endl;
+							cin >> choosee;
+							cin.ignore();
 						}
 						else if (y == 3) {
 							cout << "diem GK duoc chinh sua: ";
 							getline(cin, student_score[hs].diemGK);
+							cout << endl << "chon 1 de quay ve" << endl;
+							cin >> choosee;
+							cin.ignore();
 						}
 						else if (y == 4) {
 							cout << "diem khac duoc chinh sua: ";
 							getline(cin, student_score[hs].diemkhac);
+							cout << endl << "chon 1 de quay ve" << endl;
+							cin >> choosee;
+							cin.ignore();
 						}
 						else {
 
@@ -2360,8 +2446,10 @@ double GPA_eachst(string** a, int k, int l) {// tinh diem TB tung sinh vien
 
 void view_scoreboard_class() {//xem diem cua ca lop // 23(done)
 	system("cls");
-
+	
+	int choosee;
 	while (1) {
+		system("cls");
 		cout << "nhap lua chon: " << endl;
 		cout << "1. coi diem lop" << endl;
 		cout << "2. thoat" << endl;
@@ -2399,6 +2487,9 @@ void view_scoreboard_class() {//xem diem cua ca lop // 23(done)
 
 			if (flag == 0) {
 				cout << "khong ton tai lop hoc do" << endl;
+				cout << endl << "chon 1 de quay ve" << endl;
+				cin >> choosee;
+				cin.ignore();
 				continue;
 			}
 			else {
@@ -2588,6 +2679,9 @@ void view_scoreboard_class() {//xem diem cua ca lop // 23(done)
 				}
 				delete[] hai;
 			}
+			cout << endl << "chon 1 de quay ve" << endl;
+			cin >> choosee;
+			cin.ignore();
 		}
 		else {
 			break;
@@ -2642,7 +2736,9 @@ void courses_each_class() {//count how many course in each class//(24+)
 void student_view_scoreboard() {//student see score //24(done)
 	system("cls");
 
+	int choosee;
 	while (1) {
+		system("cls");
 		cout << endl << "nhap lua chon: " << endl;
 		cout << "1. xem diem ca hoc ky" << endl;
 		cout << "2. thoat" << endl;
@@ -2678,6 +2774,9 @@ void student_view_scoreboard() {//student see score //24(done)
 
 			if (flag == 0) {
 				cout << "khong ton tai lop hoc" << endl;
+				cout << endl << "chon 1 de quay ve" << endl;
+				cin >> choosee;
+				cin.ignore();
 				continue;
 			}
 			else {
@@ -2736,6 +2835,9 @@ void student_view_scoreboard() {//student see score //24(done)
 				delete[] mark;
 				f2.close();
 			}
+			cout << endl << "chon 1 de quay ve" << endl;
+			cin >> choosee;
+			cin.ignore();
 		}
 		else {
 			break;
@@ -2747,7 +2849,7 @@ void student_view_scoreboard() {//student see score //24(done)
 void hethongchinh_gv(int& year, int& semester, int& truycap, int& mark) {
 	while (1) {
 		system("cls");
-		cout << "1. mo dau name hoc va hoc ky moi" << endl;
+		cout << "1. mo dau nam hoc va hoc ky moi" << endl;
 		cout << "2. dau hoc ky cua nam hoc" << endl;
 		cout << "3. moi luc" << endl;
 		cout << "4. cuoi hoc ky cua nam hoc" << endl;
@@ -2775,13 +2877,14 @@ void hethongchinh_gv(int& year, int& semester, int& truycap, int& mark) {
 }
 
 void modau_gv(int& year, int& semester) {
+	int x;
 	while (1) {
 		system("cls");
 		cout << "---------MENU---------" << endl;
 		cout << "1. tao nam hoc " << endl;
 		cout << "2. tao lop hoc " << endl;
 		cout << "3. them sinh vien vao lop hoc" << endl;
-		cout << "4. tao ho ky" << endl;
+		cout << "4. tao hoc ky" << endl;
 		cout << "5. quay ve" << endl;
 		int luachon;
 		cout << "nhap lua chon: ";
@@ -2792,21 +2895,33 @@ void modau_gv(int& year, int& semester) {
 			system("cls");
 			cout << "tao nam hoc " << endl;
 			createSchoolyear(year);
+			cout << endl << "chon 1 de quay ve" << endl;
+			cin >> x;
+			cin.ignore();
 			break;
 		case 2:
 			system("cls");
 			cout << "tao lop hoc" << endl;
 			createclasses(year);
+			cout << endl << "chon 1 de quay ve" << endl;
+			cin >> x;
+			cin.ignore();
 			break;
 		case 3:
 			system("cls");
 			cout << "them sinh vien vao lop hoc" << endl;
 			themsvvaolop("1stclasses.txt", year);
+			cout << endl << "chon 1 de quay ve" << endl;
+			cin >> x;
+			cin.ignore();
 			break;
 		case 4:
 			system("cls");
 			cout << "tao hoc ky" << endl;
 			createSemester(semester, year);
+			cout << endl << "chon 1 de quay ve" << endl;
+			cin >> x;
+			cin.ignore();
 			break;
 		default:
 			return;
@@ -2815,6 +2930,7 @@ void modau_gv(int& year, int& semester) {
 }
 
 void dauhk_gv() {
+	int x;
 	while (1) {
 		system("cls");
 		cout << "---------MENU---------" << endl;
@@ -2839,36 +2955,57 @@ void dauhk_gv() {
 			course* c = new course[n];
 			add_list_course(n, c);
 			delete[] c;
+			cout << endl << "chon 1 de quay ve" << endl;
+			cin >> x;
+			cin.ignore();
 		}
 		else if (luachon == 2) {
 			system("cls");
 			cout << "them sinh vien cua lop vao khoa hoc" << endl;
 			upload_studentincourse();
+			cout << endl << "chon 1 de quay ve" << endl;
+			cin >> x;
+			cin.ignore();
 		}
 		else if (luachon == 3) {
 			system("cls");
 			cout << "xem danh sach khoa hoc" << endl;
 			view_list_course("dscourse.txt");
+			cout << endl << "chon 1 de quay ve" << endl;
+			cin >> x;
+			cin.ignore();
 		}
 		else if (luachon == 4) {
 			system("cls");
 			cout << "cap nhat thong tin khoa hoc" << endl;
 			update_course();
+			cout << endl << "chon 1 de quay ve" << endl;
+			cin >> x;
+			cin.ignore();
 		}
 		else if (luachon == 5) {
 			system("cls");
 			cout << "them 1 sinh vien vao khoa hoc" << endl;
 			add_sttocourse();
+			cout << endl << "chon 1 de quay ve" << endl;
+			cin >> x;
+			cin.ignore();
 		}
 		else if (luachon == 6) {
 			system("cls");
 			cout << "xoa sinh vien ra khoi lop hoc" << endl;
 			remove_st_course();
+			cout << endl << "chon 1 de quay ve" << endl;
+			cin >> x;
+			cin.ignore();
 		}
 		else if (luachon == 7) {
 			system("cls");
 			cout << "xoa khoa hoc" << endl;
 			delete_course();
+			cout << endl << "chon 1 de quay ve" << endl;
+			cin >> x;
+			cin.ignore();
 		}
 		else {
 			return;
@@ -2877,6 +3014,7 @@ void dauhk_gv() {
 }
 
 void anytime_gv(int& truycap) {
+	int x;
 	if (truycap == 0) {
 		merge_all_classes();
 		merge_all_course();
@@ -2898,21 +3036,33 @@ void anytime_gv(int& truycap) {
 			system("cls");
 			cout << "xem danh sach tat ca cac lop hoc" << endl;
 			view_list_classes();
+			cout << endl << "chon 1 de quay ve" << endl;
+			cin >> x;
+			cin.ignore();
 			break;
 		case 2:
 			system("cls");
 			cout << "xem danh sach sinh vien trong lop hoc" << endl;
 			view_stclass();
+			cout << endl << "chon 1 de quay ve" << endl;
+			cin >> x;
+			cin.ignore();
 			break;
 		case 3:
 			system("cls");
 			cout << "xem danh sach tat ca cac khoa hoc" << endl;
 			view_list_course("allcourse.txt");
+			cout << endl << "chon 1 de quay ve" << endl;
+			cin >> x;
+			cin.ignore();
 			break;
 		case 4:
 			system("cls");
 			cout << "xem danh sach sinh vien trong khoa hoc" << endl;
 			view_stcourse();
+			cout << endl << "chon 1 de quay ve" << endl;
+			cin >> x;
+			cin.ignore();
 			break;
 		default:
 			return;
@@ -2921,6 +3071,7 @@ void anytime_gv(int& truycap) {
 }
 
 void cuoihk_gv() {
+	int x;
 	while (1) {
 		system("cls");
 		cout << "---------MENU---------" << endl;
@@ -2938,26 +3089,41 @@ void cuoihk_gv() {
 			system("cls");
 			cout << " tao file diem cua tung khoa hoc" << endl;
 			scoreboard_course();
+			cout << endl << "chon 1 de quay ve" << endl;
+			cin >> x;
+			cin.ignore();
 			break;
 		case 2:
 			system("cls");
 			cout << "nhap file diem vao khoa hoc" << endl;
 			inp_course_scoreboard();
+			cout << endl << "chon 1 de quay ve" << endl;
+			cin >> x;
+			cin.ignore();
 			break;
 		case 3:
 			system("cls");
 			cout << "xem diem khoa hoc" << endl;
 			view_scoreboard_course();
+			cout << endl << "chon 1 de quay ve" << endl;
+			cin >> x;
+			cin.ignore();
 			break;
 		case 4:
 			system("cls");
 			cout << "cap nhat diem sinh vien" << endl;
 			update_score();
+			cout << endl << "chon 1 de quay ve" << endl;
+			cin >> x;
+			cin.ignore();
 			break;
 		case 5:
 			system("cls");
 			cout << "xem diem lop hoc" << endl;
 			view_scoreboard_class();
+			cout << endl << "chon 1 de quay ve" << endl;
+			cin >> x;
+			cin.ignore();
 			break;
 		default:
 			return;
@@ -2966,6 +3132,7 @@ void cuoihk_gv() {
 }
 
 void dauhk_sv() {
+	int x;
 	while (1) {
 		system("cls");
 		cout << "---------MENU---------" << endl;
@@ -2980,6 +3147,9 @@ void dauhk_sv() {
 			cout << "xem danh sach khoa hoc dang ky" << endl;
 			merge_course_st();
 			sv_view_course();
+			cout << endl << "chon 1 de quay ve" << endl;
+			cin >> x;
+			cin.ignore();
 			break;
 		default:
 			return;
@@ -2988,6 +3158,7 @@ void dauhk_sv() {
 }
 
 void cuoihk_sv() {
+	int x;
 	while (1) {
 		system("cls");
 		cout << "---------MENU---------" << endl;
@@ -3002,6 +3173,9 @@ void cuoihk_sv() {
 			cout << "xem diem" << endl;
 			courses_each_class();
 			student_view_scoreboard();
+			cout << endl << "chon 1 de quay ve" << endl;
+			cin >> x;
+			cin.ignore();
 			break;
 		default:
 			return;

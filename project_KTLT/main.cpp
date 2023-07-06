@@ -32,11 +32,11 @@ int main() {
 					cout << "5. thoat " << endl;
 					cout << "nhap lua chon: ";
 					cin >> luachon;
-					switch (luachon) {
-					case 1:
+					cin.ignore();
+					if (luachon == 1) {
 						hethongchinh_gv(year, semester, truycap, mark);
-						break;
-					case 2:
+					}
+					else if (luachon == 2) {
 						cout << "thong tin ca nhan: " << endl;
 						if (flag == 0) {
 							thongtin_asm("asm_1.txt", gv);
@@ -57,14 +57,25 @@ int main() {
 							int x;
 							cin >> x;
 						}
-						break;
-					case 3:
+						cin.ignore();
+					}
+					if (luachon == 3) {
 						cout << "doi mat khau " << endl;
 						doimatkhau("login_asm.txt", flag);
+						cout << "chon 1 de quay ve" << endl;
+						int x;
+						cin >> x;
+						cin.ignore();
+					}
+					if (luachon == 4) {
+						fstream f1;
+						f1.open("truycap.txt", ios::out);
+						f1 << truycap << endl;
+						f1 << mark;
+						f1.close();
 						break;
-					case 4:
-						break;
-					case 5:
+					}
+					if (luachon == 5){
 						cout << "cam on ban da su dung he thong" << endl;
 						fstream f1;
 						f1.open("truycap.txt", ios::out);
