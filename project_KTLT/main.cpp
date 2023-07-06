@@ -71,7 +71,7 @@ int main() {
 						f1 << truycap << endl;
 						f1 << mark;
 						f1.close();
-						exit(1);
+						exit(0);
 					}
 				}
 			}
@@ -113,7 +113,7 @@ int main() {
 					f1 << truycap << endl;
 					f1 << mark;
 					f1.close();
-					exit(1);
+					exit(0);
 				}
 			}
 		}

@@ -2967,6 +2967,7 @@ void cuoihk_gv() {
 
 void dauhk_sv() {
 	while (1) {
+		system("cls");
 		cout << "---------MENU---------" << endl;
 		cout << "1. xem danh sach khoa hoc dang ky" << endl;
 		cout << "2. thoat" << endl;
